@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class SiebDesEratonsthnesBoolean {
 
     private static boolean[] array;
-    private static int n;
+    private static int  n;
 
     public static void main(String[] args) {
         primZahl();
