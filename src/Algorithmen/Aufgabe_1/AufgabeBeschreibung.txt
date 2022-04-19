@@ -1,0 +1,20 @@
+	1. Write an algorithm to produce the first 15 numbers of this series: 1,1,2,3,5,8,13,21…
+	2. Write an algorithm raise any number to the third power
+	3. Write an algorithm to raise any number to any power.
+	4. Make a formula to compute the number of days before Christmas given any date.
+	5. Given the sides of a parallelogram, write an algorithm to determine its type
+	6. Given the sides of a triangle, write an algorithm to determine its type.
+	7. Having a non-scientific calculator as your only tool, find the remainder of the division of two numbers.
+	8. Suppose you have an old mechanical typewriter, with a page width of 60 characters. Your job is to put a new sheet of paper every time, and "perfectly" center at the top, of the page, any message you are given. (Hint: Try seversal messages of different length.)
+	9.Given the following table (Fotos are in the WhatsApp Group):
+	         x      y
+            -6    -18.5
+            -5    -12.5
+            -2    -6.5
+             0    -0.5
+             2     5.5
+             4     11.5
+             6     17.5
+        a) Find the formula that relates variable X with variable Y.
+        b) Describe the steps needed to get the list of Y-values.
+        c) Make a line graph of the resulting points
