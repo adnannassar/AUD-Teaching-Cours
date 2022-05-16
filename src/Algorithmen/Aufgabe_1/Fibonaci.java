@@ -2,7 +2,7 @@ package Algorithmen.Aufgabe_1;
 
 public class Fibonaci {
     public static void main(String[] args) {
-        fibo(8);
+        fibo(15);
 
     }
 
