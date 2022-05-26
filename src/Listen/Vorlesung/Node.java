@@ -2,20 +2,20 @@ package Listen.Vorlesung;
 
 
 // java beans
-public class Node {
-    private int value;
+public class Node <E> {
+    private E value;
     private Node next;
 
-    public Node(int value, Node next) {
+    public Node(E value, Node next) {
         this.value = value;
         this.next = next;
     }
 
-    public int getValue() {
+    public E getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(E value) {
         this.value = value;
     }
 

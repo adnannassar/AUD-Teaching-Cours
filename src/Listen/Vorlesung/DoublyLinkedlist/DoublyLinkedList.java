@@ -1,15 +1,16 @@
-package Listen.Vorlesung;
-//
-public class LinkedListMy <E extends Comparable<E>> {
+package Listen.Vorlesung.DoublyLinkedlist;
 
+public class DoublyLinkedList {
     private Node head;
     private Node end;
+
     private int size;
 
-    public LinkedListMy() {
+
+    public DoublyLinkedList() {
     }
 
-    public LinkedListMy(Node head) {
+    public DoublyLinkedList(Node head) {
         this.head = head;
         this.end = head;
     }
@@ -22,7 +23,7 @@ public class LinkedListMy <E extends Comparable<E>> {
         }
     }
 
-    public void add(E value) {
+    public void add(int value) {
         if (isEmpty()) {
             addStart(value);
         } else {
@@ -31,36 +32,41 @@ public class LinkedListMy <E extends Comparable<E>> {
         size++;
     }
 
-    public void add(int index, E value) {
+    public void add(int index, int value) {
         if (index < 0) {
             System.out.println("Negative Indexe sind nicht erlaube!");
         } else if (index == 0) {
-            Node node = new Node(value, null);
+            Node newNode = new Node(value, null, null);
             if (isEmpty()) {
-                end = head = node;
+                end = head = newNode;
             } else {
-                node.setNext(head.getNext());
-                head.setNext(node);
+                head.getNext().setVorgänger(newNode);
+                newNode.setNext(head.getNext());
+                head.setNext(newNode);
+                newNode.setVorgänger(head);
             }
             size++;
         } else if (index >= size) {
             addEnd(value);
             size++;
         } else {
-            Node node = new Node(value, null);
+            Node newNode = new Node(value, null, null);
             Node pointer = head;
             int i = 0;
             while (i != index) {
                 pointer = pointer.getNext();
                 i++;
             }
-            node.setNext(pointer.getNext());
-            pointer.setNext(node);
+            newNode.setVorgänger(pointer);
+            newNode.setNext(pointer.getNext());
+            pointer.getNext().setVorgänger(newNode);
+            pointer.setNext(newNode);
+
             size++;
         }
     }
 
-    public void set(int index, E value) {
+    public void set(int index, int value) {
         // set(-1,value) --> index negativ
         if (index < 0) {
             System.out.println("Negative indexe sind nicht erlaubt!");
@@ -98,18 +104,19 @@ public class LinkedListMy <E extends Comparable<E>> {
         }
     }
 
-    private void addStart(E value) {
-        Node newNode = new Node(value, null);
+    private void addStart(int value) {
+        Node newNode = new Node(value, null, null);
         head = newNode;
         end = newNode;
     }
 
-    private void addEnd(E value) {
-        Node newNode = new Node(value, null);
+    private void addEnd(int value) {
+        Node newNode = new Node(value, null, null);
         Node pointer = head;
         while (pointer.getNext() != null) {
             pointer = pointer.getNext();
         }
+        newNode.setVorgänger(pointer);
         pointer.setNext(newNode);
         end = newNode;
     }
@@ -141,29 +148,5 @@ public class LinkedListMy <E extends Comparable<E>> {
         System.out.println("Size of the list: " + size);
     }
 
-    public void remove(E value) {
-        if (isEmpty()) {
-            System.out.println("List ist leer!");
-        } else {
-            if (head.getValue() == value) {
-                head = head.getNext();
-            } else if (end.getValue() == value) {
-                Node pointer = head;
-                while (pointer.getNext() != null) {
-                    pointer = pointer.getNext();
-                }
-                end = pointer;
-            } else {
-                Node pointer = head;
-                Node before_pointer = head;
-                while (pointer != null) {
-                    if(pointer.getValue() == value){
-                        before_pointer.setNext(pointer.getNext());
-                    }
-                    before_pointer = pointer;
-                    pointer = pointer.getNext();
-                }
-            }
-        }
-    }
+
 }

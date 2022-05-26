@@ -1,20 +1,14 @@
-package Listen.Vorlesung;
+package Listen.Vorlesung.DoublyLinkedlist;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedListMy <Integer> linkedList = new LinkedListMy();
-        LinkedListMy <Table> linkedList2 = new LinkedListMy();
-
-        linkedList2.add(new Table("Marke Test1"));
-        linkedList2.add(new Table("Tisch top"));
-        linkedList2.add(new Table("طاولة top"));
-
+        DoublyLinkedList linkedList = new DoublyLinkedList();
         // head = null
         linkedList.add(0, 10);
         linkedList.add(1);
-        linkedList.add(4);
         linkedList.add(2);
         linkedList.add(3);
+        linkedList.add(4);
         linkedList.add(5);
         System.out.print("Before: ");
         linkedList.printInfo();
@@ -29,7 +23,6 @@ public class Main {
         linkedList.printInfo();
 
         System.out.println();
-        linkedList.remove(4);
         //TODO
 
         // Liste mit END erweitern mit der Betrachtung in allen Methoden,
@@ -64,19 +57,5 @@ public class Main {
 
         // LinkedListMy merged = linkedList.merge(list2) --> 1 -> 2 -> 3 -> 4
 
-    }
-}
-class Table implements Comparable<Table> {
-    String marke;
-    int width;
-    int height;
-
-    public Table(String marke) {
-        this.marke = marke;
-    }
-
-    @Override
-    public int compareTo(Table o) {
-        return marke.compareTo(o.marke);
     }
 }
