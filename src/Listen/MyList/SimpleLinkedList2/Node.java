@@ -1,4 +1,4 @@
-package Listen.Vorlesung;
+package Listen.MyList.SimpleLinkedList2;
 
 
 // java beans

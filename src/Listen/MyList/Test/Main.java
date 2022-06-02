@@ -1,8 +1,11 @@
-package Listen.Vorlesung;
+package Listen.MyList.Test;
+
+import Listen.MyList.SimpleLinkedlist.LinkedListMy;
+import Listen.MyList.Entities.Table;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedListMy <Integer> linkedList = new LinkedListMy();
+        LinkedListMy<Integer> linkedList = new LinkedListMy();
         LinkedListMy <Table> linkedList2 = new LinkedListMy();
 
         linkedList2.add(new Table("Marke Test1"));
@@ -64,19 +67,5 @@ public class Main {
 
         // LinkedListMy merged = linkedList.merge(list2) --> 1 -> 2 -> 3 -> 4
 
-    }
-}
-class Table implements Comparable<Table> {
-    String marke;
-    int width;
-    int height;
-
-    public Table(String marke) {
-        this.marke = marke;
-    }
-
-    @Override
-    public int compareTo(Table o) {
-        return marke.compareTo(o.marke);
     }
 }

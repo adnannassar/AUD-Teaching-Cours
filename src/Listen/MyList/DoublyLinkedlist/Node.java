@@ -1,5 +1,4 @@
-package Listen.Vorlesung.DoublyLinkedlist;
-
+package Listen.MyList.DoublyLinkedlist;
 
 // java beans
 public class Node {

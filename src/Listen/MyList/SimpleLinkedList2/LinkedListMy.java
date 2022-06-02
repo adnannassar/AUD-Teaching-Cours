@@ -1,16 +1,18 @@
-package Listen.Vorlesung.DoublyLinkedlist;
+package Listen.MyList.SimpleLinkedList2;
 
-public class DoublyLinkedList {
-    private Node head;
-    private Node end;
+import java.util.Iterator;
 
+//
+public class LinkedListMy <E extends Comparable<E>> implements Iterable<E> {
+
+    private Node<E> head;
+    private Node<E> end;
     private int size;
 
-
-    public DoublyLinkedList() {
+    public LinkedListMy() {
     }
 
-    public DoublyLinkedList(Node head) {
+    public LinkedListMy(Node<E> head) {
         this.head = head;
         this.end = head;
     }
@@ -23,7 +25,7 @@ public class DoublyLinkedList {
         }
     }
 
-    public void add(int value) {
+    public void add(E value) {
         if (isEmpty()) {
             addStart(value);
         } else {
@@ -32,41 +34,36 @@ public class DoublyLinkedList {
         size++;
     }
 
-    public void add(int index, int value) {
+    public void add(int index, E value) {
         if (index < 0) {
             System.out.println("Negative Indexe sind nicht erlaube!");
         } else if (index == 0) {
-            Node newNode = new Node(value, null, null);
+            Node node = new Node(value, null);
             if (isEmpty()) {
-                end = head = newNode;
+                end = head = node;
             } else {
-                head.getNext().setVorgänger(newNode);
-                newNode.setNext(head.getNext());
-                head.setNext(newNode);
-                newNode.setVorgänger(head);
+                node.setNext(head.getNext());
+                head.setNext(node);
             }
             size++;
         } else if (index >= size) {
             addEnd(value);
             size++;
         } else {
-            Node newNode = new Node(value, null, null);
+            Node node = new Node(value, null);
             Node pointer = head;
             int i = 0;
             while (i != index) {
                 pointer = pointer.getNext();
                 i++;
             }
-            newNode.setVorgänger(pointer);
-            newNode.setNext(pointer.getNext());
-            pointer.getNext().setVorgänger(newNode);
-            pointer.setNext(newNode);
-
+            node.setNext(pointer.getNext());
+            pointer.setNext(node);
             size++;
         }
     }
 
-    public void set(int index, int value) {
+    public void set(int index, E value) {
         // set(-1,value) --> index negativ
         if (index < 0) {
             System.out.println("Negative indexe sind nicht erlaubt!");
@@ -104,19 +101,18 @@ public class DoublyLinkedList {
         }
     }
 
-    private void addStart(int value) {
-        Node newNode = new Node(value, null, null);
+    private void addStart(E value) {
+        Node newNode = new Node(value, null);
         head = newNode;
         end = newNode;
     }
 
-    private void addEnd(int value) {
-        Node newNode = new Node(value, null, null);
+    private void addEnd(E value) {
+        Node newNode = new Node(value, null);
         Node pointer = head;
         while (pointer.getNext() != null) {
             pointer = pointer.getNext();
         }
-        newNode.setVorgänger(pointer);
         pointer.setNext(newNode);
         end = newNode;
     }
@@ -148,5 +144,46 @@ public class DoublyLinkedList {
         System.out.println("Size of the list: " + size);
     }
 
+    public void remove(E value) {
+        if (isEmpty()) {
+            System.out.println("List ist leer!");
+        } else {
+            if (head.getValue() == value) {
+                head = head.getNext();
+            } else if (end.getValue() == value) {
+                Node pointer = head;
+                while (pointer.getNext() != null) {
+                    pointer = pointer.getNext();
+                }
+                end = pointer;
+            } else {
+                Node pointer = head;
+                Node before_pointer = head;
+                while (pointer != null) {
+                    if(pointer.getValue() == value){
+                        before_pointer.setNext(pointer.getNext());
+                    }
+                    before_pointer = pointer;
+                    pointer = pointer.getNext();
+                }
+            }
+        }
+    }
 
+    public Iterator<E> iterator (){
+        return new Iterator<E>() {
+            @Override
+            public boolean hasNext() {
+                return head != null;
+            }
+
+            @Override
+            public E next() {
+                Node<E> pointer =  head;
+                E value = pointer.getValue();
+                pointer = pointer.getNext();
+                return null;
+            }
+        };
+    }
 }
