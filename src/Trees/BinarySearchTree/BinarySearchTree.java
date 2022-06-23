@@ -43,15 +43,141 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    private String traversePerOder() {
-        return "";
+    public String traversePerOder() {
+        if (isEmpty()) {
+            return "Baum ist leer!";
+        } else {
+            return traversePerOder(root);
+        }
     }
 
-    private String traverseInOder() {
-        return "";
+    private String traversePerOder(Node<T> newRoot) {
+        String erg = "";
+
+        // Root
+        erg += newRoot.value + " ";
+
+        // Left
+        if (newRoot.left != null) {
+            erg += traversePerOder(newRoot.left);
+        }
+
+        // Right
+        if (newRoot.right != null) {
+            erg += traversePerOder(newRoot.right);
+        }
+
+        return erg;
     }
 
-    private String traversePosetOder() {
-        return "";
+    public String traverseInOder() {
+        if (isEmpty()) {
+            return "Baum ist leer!";
+        } else {
+            return traverseInOder(root);
+        }
+    }
+
+    private String traverseInOder(Node<T> newRoot) {
+        String erg = "";
+
+        // Left
+        if (newRoot.left != null) {
+            erg += traverseInOder(newRoot.left);
+        }
+
+        // Root
+        erg += newRoot.value + " ";
+
+        // Right
+        if (newRoot.right != null) {
+            erg += traverseInOder(newRoot.right);
+        }
+
+        return erg;
+    }
+
+    public String traversePostOder() {
+        if (isEmpty()) {
+            return "Baum ist leer!";
+        } else {
+            return traversePostOder(root);
+        }
+    }
+
+    private String traversePostOder(Node<T> newRoot) {
+        String erg = "";
+
+        // Left
+        if (newRoot.left != null) {
+            erg += traversePostOder(newRoot.left);
+        }
+
+        // Right
+        if (newRoot.right != null) {
+            erg += traversePostOder(newRoot.right);
+        }
+
+        // Root
+        erg += newRoot.value + " ";
+
+        return erg;
+    }
+
+    public String traversePostOderInverted() {
+        if (isEmpty()) {
+            return "Baum ist leer!";
+        } else {
+            return traversePostOderInverted(root);
+        }
+    }
+
+    private String traversePostOderInverted(Node<T> newRoot) {
+        String erg = "";
+
+
+        // Right
+        if (newRoot.right != null) {
+            erg += traversePostOderInverted(newRoot.right);
+        }
+
+        // Left
+        if (newRoot.left != null) {
+            erg += traversePostOderInverted(newRoot.left);
+        }
+
+
+        // Root
+        erg += newRoot.value + " ";
+
+        return erg;
+    }
+
+    public String traverseInOderInverted() {
+        if (isEmpty()) {
+            return "Baum ist leer!";
+        } else {
+            return traverseInOderInverted(root);
+        }
+    }
+
+    private String traverseInOderInverted(Node<T> newRoot) {
+        String erg = "";
+
+
+        // Right
+        if (newRoot.right != null) {
+            erg += traverseInOderInverted(newRoot.right);
+        }
+
+        // Root
+        erg += newRoot.value + " ";
+
+        // Left
+        if (newRoot.left != null) {
+            erg += traverseInOderInverted(newRoot.left);
+        }
+
+        return erg;
     }
 }
