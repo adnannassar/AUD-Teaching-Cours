@@ -180,4 +180,95 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         return erg;
     }
+
+    public boolean search(T value) {
+        if (isEmpty()) {
+            return false;
+        } else {
+            return search(value, root);
+        }
+    }
+
+    private boolean search(T value, Node<T> newRoot) {
+        if (newRoot == null) {
+            return false;
+        }
+
+        int compareResult = value.compareTo(newRoot.value);
+        if (compareResult == 0) {
+            return true;
+        } else if (compareResult > 0) {
+            return search(value, newRoot.right);
+        } else {
+            return search(value, newRoot.left);
+        }
+    }
+
+    public int anzahlKnoten() {
+        if (isEmpty()) {
+            return 0;
+        } else {
+            return anzahlKnoten(root);
+        }
+    }
+
+    private int anzahlKnoten(Node<T> newRoot) {
+        if (newRoot == null) {
+            return 0;
+        } else {
+            return anzahlKnoten(newRoot.left) + anzahlKnoten(newRoot.right) + 1;
+        }
+    }
+
+    public int anzahlBlätter() {
+        if (isEmpty()) {
+            return 0;
+        } else {
+            return anzahlBlätter(root);
+        }
+    }
+
+    public int anzahlBlätter(Node<T> newRoot) {
+        // Abbruch Bedingung
+        if (newRoot == null) {
+            return 0;
+        }
+        if (newRoot.left == null && newRoot.right == null) {
+            return 1;
+        } else {
+            return anzahlBlätter(newRoot.left) + anzahlBlätter(newRoot.right);
+        }
+    }
+
+    public int hohe() {
+        if (isEmpty()) {
+            return 0;
+        } else {
+            return hohe(root);
+        }
+    }
+
+    private int hohe(Node<T> newRoot) {
+        if (newRoot == null) {
+            return 0;
+        } else {
+            int hoheLeft = hohe(newRoot.left);
+            int hoheRight = hohe(newRoot.right);
+            if (hoheLeft > hoheRight) {
+                return hoheLeft + 1;
+            } else if (hoheRight > hoheLeft) {
+                return hoheRight + 1;
+            } else {
+                return hoheRight + 1;
+            }
+        }
+    }
+
+    public BaumInfo getBaumInfo() {
+        if (isEmpty()) {
+            return new BaumInfo();
+        } else {
+            return new BaumInfo(anzahlKnoten(), anzahlBlätter(), hohe());
+        }
+    }
 }
