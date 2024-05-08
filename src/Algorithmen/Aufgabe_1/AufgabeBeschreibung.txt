@@ -1,97 +1,21 @@
 	1. (Fibonacci)Write an algorithm to produce the first 15 numbers of this series: 1,1,2,3,5,8,13,21…
-	    Lösung:
-	            // Algorithmus
-                // 1. define two number (a,b) equals 1
-                // 2. define result
-                // 4. ausgabe (a) ,ausgabe (b)
-                // 5. loop
-                //      3.1. define i to n
-                //      3.2. result = a+b
-                // 6. give result
 
-                // Pseudo:
-                // 1. a <- 1 , b <- 1
-                // 2. result <- 0
-                // 3. ausgabe (a) ,ausgabe (b)
-                // 3. for i <- 2 to n do
-                //       result <- a + b
-                //       ausgabe (result)
-                //       a <- b
-                //       b <- result
-                //    end for
 	2. Write an algorithm raise any number to the third power
-                // Lösung
-                // Algorithmus
-                // 1. define / read the number a
-                // 2. define result equlas a * a * a
-
-                // Pseudo
-                // 1. eingabe a
-                // 2. ausgabe ( a * a * a)
 
 	3. Write an algorithm to raise any number to any power.
-	            // Lösung
-                // Algorithmus
-                // 1. define / read the base
-                // 2. define / read the exponent
-                // 3. define result equals 1
-                // 4. repeat exponent times
-                // 5. result equals result +  (base * base)
 
-                // Pseudo
-                // 1. eingabe base
-                // 2. eingabe exponent
-                // 3. result <- 1
-                // 4. for i <- 1 to exponent do
-                        result <- result * base
-                       end for
-                // 5. rückgabe result
 	4. Make a formula to compute the number of days before Christmas given any date.
-	            // Lösung
-                // Algorithmus for  general
-                // 1. read the day
-                // 2. read the month
-                // 3. read the year
-                // 4. calculate days to Christmas
-                    // Algorithmus for days to Christmas
-                    // 1. define the days number equals 24 - day from user
-                    // 2. define result days number + daysInMonth(month)
-                        // Algorithmus for daysInMonth(month)
-                        // 1.check how many days in month
-                        // 2.add the days of all months together
-                // Pseudo for  general:
-                // 1. eingabe day
-                // 2. eingabe month
-                // 3. eingabe year
-                // 4. calculateDaysToChristmas()
-
-                // Pseudo for days to Christmas
-                // 1. daysNumber <- 24 - day
-                // 2. result <- daysNumber + daysInMonth(month)
-
-                // Pseudo for days to days in Month
-                // 1. auswahl days in month
-                // 2. sum <- sum +  days in month
-                // 2. rückgabe sum
 
 	5. Given the sides of a parallelogram, write an algorithm to determine its type
-	            // Algorithmus
-	            // 1. read the sides
-	            // 2. if sides are equals then the parallelogram is square
-	            // 3. if sides are not equals then the parallelogram is rectangle
-
-	            // Pseudo
-	            // 1. eingabe side1 , side 2
-	            // 2. if side1 = side 2 then
-	                    square
-	            // 3. else
-	                    rectangle
 
 	6. Given the sides of a triangle, write an algorithm to determine its type.
+
 	7. Having a non-scientific calculator as your only tool, find the remainder of the division of two numbers.
+
 	8. Suppose you have an old mechanical typewriter, with a page width of 60 characters.
 	Your job is to put a new sheet of paper every time, and "perfectly" center at the top, of the page,
-	any message you are given. (Hint: Try seversal messages of different length.)
+	any message you are given. (Hint: Try several messages of different length.)
+
 	9.Given the following table:
 	         x      y
             -6    -18.5
